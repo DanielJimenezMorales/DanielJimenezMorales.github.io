@@ -21,10 +21,11 @@ author: Daniel Jiménez Morales
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  Blog: "index"
+  Portfolio: "portfolio"
+  #Resources:
+  #  - Beautiful Jekyll: "https://beautifuljekyll.com"
+  #  - Learn markdown: "https://www.markdowntutorial.com/"
 
 ################
 # --- Logo --- #
@@ -52,9 +53,9 @@ social-network-links:
   email: "danieljimenezmorales3@gmail.com"
 # rss: true  # remove this line if you don't want to show an RSS link at the bottom
 # facebook: deanattali
-  github: daattali
+  github: DanielJimenezMorales
   twitter: daattali
-  linkedin: daattali
+  linkedin: daniel-jimenez-morales
 #  patreon: DeanAttali
 #  youtube: c/daattali
 #  medium: yourname
@@ -109,7 +110,7 @@ feed_show_tags: true
 post_search: true
 
 # Add a button in the footer to edit the current page. Only works if your website is hosted on GitHub
-edit_page_button: true
+#edit_page_button: true
 
 # Allow sub-menu items (second-level navigation menu items) to be longer than the top-level menu
 # If this setting is off, then long sub-menu words might get cut off
@@ -117,7 +118,7 @@ edit_page_button: true
 navbar-var-length: false
 
 # The keywords to associate with your website, for SEO purposes
-#keywords: "my,list,of,keywords"
+keywords: "netcode,multiplayer,network,online"
 
 ######################################
 # --- Colours / background image --- #
