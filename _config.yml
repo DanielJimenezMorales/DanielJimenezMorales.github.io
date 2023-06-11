@@ -21,7 +21,7 @@ author: Daniel Jiménez Morales
 
 navbar-links:
   Blog: "index"
-  Projects: "portfolio"
+  Projects: "projects"
   About Me: "aboutme"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
