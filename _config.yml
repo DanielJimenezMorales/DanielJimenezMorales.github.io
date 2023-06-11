@@ -10,7 +10,7 @@
 ############################
 
 # Name of website
-title: Dani Netcode
+title: Daniel Jiménez Morales
 
 # Your name to show in the footer
 author: Daniel Jiménez Morales
@@ -20,9 +20,9 @@ author: Daniel Jiménez Morales
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
   Blog: "index"
   Portfolio: "portfolio"
+  About Me: "aboutme"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
   #  - Learn markdown: "https://www.markdowntutorial.com/"
