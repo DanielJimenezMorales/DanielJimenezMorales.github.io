@@ -11,13 +11,13 @@ When developing an online multiplayer video game, it is necessary to understand 
 ## Latency:
 The first challenge is latency, which is defined as the time it takes for information to be transmitted from the client's application layer to the server's application layer [26]. Latency is unidirectional, considering only the one-way path. If both the outgoing and return paths are taken into account, it refers to another term called round-trip time (RTT). This value is commonly known as "ping." Latency depends on several factors. Firstly, it is affected by the number of intermediate network nodes and the transmission speed of each node. Each time a packet passes through an intermediate node, it is affected by a nodal delay (D_nodal), which is the sum of various delays [27, 28]:
 
-Transmission delay (D_trans): It is the time it takes for an originating node to send all the bits of a packet (consisting of its header, H, and payload, p) through the network. This time depends on the size of the packet H+p and the transmission speed (b), commonly known as bandwidth, of the originating node, measured in bits per second (bps). $D_{trans}$ = $\rfrac{(H+p)}{b}$.
+- Transmission delay (D_trans): It is the time it takes for an originating node to send all the bits of a packet (consisting of its header, H, and payload, p) through the network. This time depends on the size of the packet H+p and the transmission speed (b), commonly known as bandwidth, of the originating node, measured in bits per second (bps). ![Transmission delay formula](https://latex.codecogs.com/svg.image?D_{trans}=\frac{(H&plus;p)}{b}).
 
-Propagation delay (D_prop): It is the time it takes for information to travel from the originating node to the destination node. This time depends on the distance (d) the signal has to travel between the origin and destination and the propagation speed (s) of the medium. D_prop = d⁄s.
+- Propagation delay (D_prop): It is the time it takes for information to travel from the originating node to the destination node. This time depends on the distance (d) the signal has to travel between the origin and destination and the propagation speed (s) of the medium. D_prop = d⁄s.
 
-Processing delay (D_proc): It is the time it takes for a node to process the packet. This time depends on the processing speed of the node.
+- Processing delay (D_proc): It is the time it takes for a node to process the packet. This time depends on the processing speed of the node.
 
-Queueing delay (D_queue): It is the time a packet spends in a buffer waiting to be processed by a node. This time depends on how busy the node is at that moment.
+- Queueing delay (D_queue): It is the time a packet spends in a buffer waiting to be processed by a node. This time depends on how busy the node is at that moment.
 
 As a result, the nodal delay of an intermediate node can be calculated using the formula D_nodal = D_trans + D_prop + D_proc + D_queue.
 
