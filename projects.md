@@ -20,5 +20,5 @@ This project was the outcome of my undergraduate thesis at the university. It is
 - Authoritative Server
 - Server side input prediction
 - Jitter buffers/Playout delay buffers\
-**[Download the prototype here](https://danieljimenezmorales.itch.io/online-multiplayer-fps-prototype){: .btn}**
-<button name="button" onclick="http://www.google.com">Click me</button>
+**[Download the prototype here](https://danieljimenezmorales.itch.io/online-multiplayer-fps-prototype){: .btn :}**
+<button name="button" onclick="https://danieljimenezmorales.itch.io/online-multiplayer-fps-prototype" style="border-radius: 8px; background-color: #f44336;">Download it</button>
