@@ -1,5 +1,5 @@
 ---
-layout: post
+#layout: post
 title: Netcode Blogs
 subtitle: A list of Netcode related blogs
 gh-repo: daattali/beautiful-jekyll
