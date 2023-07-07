@@ -4,22 +4,21 @@ title: Projects
 subtitle: Check what I have done!
 ---
 
-Hello! My name is Daniel and I am a spanish Netcode programmer. 
-
 ## Online Multiplayer FPS Prototype
 ![Online Multiplayer FPS Prototype cover image](/assets/img/online-multiplayer-FPS-prototype-cover-image.JPG){: .mx-auto.d-block :}
 This project was the outcome of my undergraduate thesis at the university. It is a Fast Paced First Person Shooter that features a client/server architecture, where clients utilize the Snapshot Interpolation technique to update their local world states. Furthermore, both the client and server incorporate multiple latency compensation techniques to provide an enhanced gaming experience.
 
-### Technologies used:
+#### Technologies used:
 - Unity3D
 - Netcode For GameObjects library
 - Photon Relay Services
 
-### Netcode features implemented:
+#### Netcode features implemented:
 - Client Side prediction
 - Client Side entity interpolation & extrapolation
 - Server side hit registration with latency compensation
 - Authoritative Server
 - Server side input prediction
 - Jitter buffers/Playout delay buffers\
-**[Download the prototype here](https://danieljimenezmorales.itch.io/online-multiplayer-fps-prototype)**
+**[Download the prototype here](https://danieljimenezmorales.itch.io/online-multiplayer-fps-prototype){: .btn}**
+<button name="button" onclick="http://www.google.com">Click me</button>

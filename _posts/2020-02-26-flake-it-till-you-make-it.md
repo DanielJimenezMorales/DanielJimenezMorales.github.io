@@ -1,5 +1,5 @@
 ---
-#layout: post
+#layout: page
 title: Snapshots interpolation
 subtitle: Excerpt from Soulshaping by Jeff Brown
 cover-img: /assets/img/path.jpg
