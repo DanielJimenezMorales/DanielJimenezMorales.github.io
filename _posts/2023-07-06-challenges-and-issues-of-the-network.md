@@ -4,9 +4,10 @@ title: Challenges and issues of the network
 subtitle: The issues that Network developers have to face in networked games
 tags: [latency, jitter, packet loss, bufferbloat]
 comments: true
+readtime: true
 ---
 
-When developing an online multiplayer video game, it is necessary to understand the problems related to the network that need to be addressed.
+When developing an online multiplayer game, it is necessary to understand the problems related to the network that need to be addressed.
 
 ## Latency:
 The first challenge is latency, which is defined as the time it takes for information to be transmitted from the client's application layer to the server's application layer [26]. Latency is unidirectional, considering only the one-way path. If both the outgoing and return paths are taken into account, it refers to another term called *round-trip time* (RTT). This value is commonly known as *"ping"*. Latency depends on several factors. Firstly, it is affected by the number of intermediate network nodes and the transmission speed of each node. Each time a packet passes through an intermediate node, it is affected by a nodal delay (*D<sub>nodal</sub>*), which is the sum of various delays [27, 28]:
