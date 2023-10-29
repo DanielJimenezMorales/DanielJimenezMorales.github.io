@@ -127,7 +127,7 @@ Games like Battlefield 4 and Overwatch had a limit of 250 milliseconds before st
 **Note:** As previously mentioned in the **Server-side rewind** section, Conditional Lag Compensation can also act as a limitation for cheaters trying to manipulate the client's input timestamp significantly as it will be clamped anyway.
 
 ## Other solutions investigated:
-This final section explores other solutions that have been proposed for improving different aspects related to the Hit Registration process but, in my opinion, contain. It is important to note that while these solution have their merits, they also come with, in the author's opinion, significant drawbacks. For each solution, I will explain its key aspects and additionaly provide my own opinon about why they may not be ideal.
+This final section explores other solutions that have been proposed for improving different aspects related to the Hit Registration process. It is important to note that while these solutions have their merits, they also come with, in the author's opinion, significant drawbacks. For each solution, I will explain its key aspects and additionaly provide my own opinon about why they may not be ideal.
 
 ### Advanced Lag Compensation: Victim's approval (+ Author's opinion)
 Another approach to mitigate the problem of being hit after taking cover is proposed by Lee and Chang [10], known as Advanced Lag Compensation. In this approach, when a bullet successfully hits a player, the victim has an opportunity to deny the hit if a "Shot behind cover" situation is detected. Every time the server performs the Hit Registration algorithm, it sends to the victim a hit event notification with the results. However, this event is not considered final, as the victim has two options:
