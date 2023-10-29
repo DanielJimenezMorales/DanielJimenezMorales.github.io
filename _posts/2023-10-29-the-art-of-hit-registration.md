@@ -17,7 +17,7 @@ In networked shooting games there are two types of weapons [1]:
 ## What is Hit Registration and how does it work?
 In a client-server architecture with the server acting as the authoritative host, when a player decides to open fire, this action is transmitted to the server. Once it arrives, the server will be responsible for executing all the necessary calculations in order to determine whether the bullet, originated by the client's firing action, has collided with any player or not. This process is known as "Hit Registration", and in the case of hitscan weapons, it is achieved by casting a raycast, which is a straight line designed to identify the different points of intersection between that ray and the different colliders within the game world.
 
-![Raycast behaviour](assets/img/HitReg/raycast.png){: .mx-auto.d-block :}
+![Raycast behaviour](/assets/img/HitReg/raycast.png){: .mx-auto.d-block :}
 
 ## The first issue: Lack of client-side responsiveness
 This communication between the client and the server has a problem and it is related to latency. Even in the case that hitscan weapons are being used, when the client detects that the player has pressed the fire button, the shot does not occur immediately. Instead, the client must wait for the server to execute the Hit Registration algorithm, in order to confirm whether the shot has collided with a player or not, and wait until the confirmation message arrives to the client. The generated lag would be noticeable for the player and would degrade the responsiveness of shooting actions in the game.
@@ -34,11 +34,11 @@ Additionally, the client can also execute a Hit Registration algorithm in order 
 - Impact sounds.
 - Blood particle effects.
 
-![Firing effects GIF](assets/img/HitReg/fire-effects.gif){: .mx-auto.d-block :}
+![Firing effects GIF](/assets/img/HitReg/fire-effects.gif){: .mx-auto.d-block :}
 
 On the other hand, not everything can be addressed through effects. When firing a weapon, the client is certain that a firing action has occurred, even if it is not sure whether the resulting bullet hit a target or not. As a consequence multiple effects, such as those described above, can be displayed in order to provide feedback to the player about their actions. However, effects with permanent consequences such as decreasing a player's health, or those that represent decisions taken by the server, like shot confirmations (often represented as a hitmarker in most FPS games), must wait until the client receives the server's response before being executed. If the client predicts these permanent decisions incorrectly, it could lead to awkward situations that are difficult to undo.
 
-![Latecy Concealment](assets/img/HitReg/latency-concealment.png){: .mx-auto.d-block :}
+![Latecy Concealment](/assets/img/HitReg/latency-concealment.png){: .mx-auto.d-block :}
 
 ## The second issue: Accuracy errors
 Another issue that should be addressed is related to the Hit registration accuracy. In networked games based on a client server architecture, if the client is using interpolation techniques to update remote entity states, it will renders the rest of remote players in a state slightly behind in time from the server's one. This is caused by how interpolation works. When those entity states arrive from the server, they are not immediately applied but buffered until the client has at least two different states in order to interpolate between them and create a smooth transition. This technique adds an additional latency which can be calculated with the following formula:
@@ -56,7 +56,7 @@ Considering all these factors, the final formula for estimating the time differe
 
 As a consequence of this difference, a situation like the one represented in the image below might occur. By the time the client's input arrives to the server, the position of the target player may have changed, and there is a possibility that after executing the Hit registration algorithm, the shot may result in a miss.
 
-![Graphic representation of accuracy errors caused by latency](assets/img/HitReg/hit-miss.png){: .mx-auto.d-block :}
+![Graphic representation of accuracy errors caused by latency](/assets/img/HitReg/hit-miss.png){: .mx-auto.d-block :}
 
 ## The solution: Server-side rewind
 To minimize accuracy errors within the Hit Registration process, a technique called "Server-side rewind" could be employed. This technique aims to reduce the desynchronization, explained in the previous paragraph, between the client and server states by replicating the client's world state on the server to match the moment when the client fired the weapon. In order to achieve this, the server needs to store a history of the past world states allowing it to determine, whenever a client's fire petition arrives, which world state from the history corresponds to the moment the petition was created on the client. This process can be divided into a few steps [3]:
@@ -98,14 +98,14 @@ Another approach to implement this rollback is the one used by Riot Games develo
 Due to the loss of performance that this approach was providing to the Valorant's team, developers decided to optimize it by rolling back animations only for those entities that could potentially be hit by the bullet.
 To determine whether an entity is within the bullet's range, the server performs a rollback only to a bounding box collider that contains each entire entity. After this step, the server executes a Sphere cast, as shown in the image below, starting from the shooter's position in the direction of their shot, but only against the entity bounding box colliders. Only those entities whose bounding box colliders had been hit by the Sphere cast will get an animation rollback in order to perform a second raycast against those entities.
 
-![Sphere Cast in Valorant](assets/img/HitReg/valorant-sphere-cast.png){: .mx-auto.d-block :}
+![Sphere Cast in Valorant](/assets/img/HitReg/valorant-sphere-cast.png){: .mx-auto.d-block :}
 
 As the official Valorant's article says, before applying this optimization, updating the animations for one single player entity could take up to 0.1 milliseconds. However, after implementing this selective animation rollback system, the average time for processing all animations from one single frame was reduced to 0.3 milliseconds.
 
 ### Third approach (Overwatch)
 Another solution similar to the one developed by the Valorant's team is discussed by Ford, one of the developers of Overwatch, in his GDC 2017 presentation [6]. In this approach, each entity (which can be players, doors, turrets...) is equipped with a collider that contains it. So far, the technique is mostly the same as the bounding box optimization applied by Valorant. However, the bounding box collider of Overwatch's solution not only contains the entity at a specific moment but all positions the entity has been within a time interval ranging from X milliseconds in the past to the current moment. In the image below, an example of these colliders can be observed on the enemy located on the left. Based on this approach, during the Hit Registration process, the first step is to check if the raycast collides with any of these custom bounding box colliders. Once the ray cast has been executed, only those entities whose bounding box collider has been hit by the raycast will be rolled back based on the client's ping in order to obtain the final results.
 
-![Custom bounding box collider in Overwatch](assets/img/HitReg/overwatch-custom-bounding-box-collider.png){: .mx-auto.d-block :}
+![Custom bounding box collider in Overwatch](/assets/img/HitReg/overwatch-custom-bounding-box-collider.png){: .mx-auto.d-block :}
 
 ## The third issue: Shot behind covers (SBC)
 Another challenge that must be addressed when talking about Hit registration algorithms is the phenomenon known as "Shot behind covers" (SBC) [7]. This situation arises when a player with high latency shoots at another player with low latency. It is possible that the low-latency player has already taken cover behind an obstacle and is out of the shooter's line of sight. However, due to the attacker's high latency and the fact that clients render remote entities in a past state, the shooter player will still be able to see its victim. When the high-latency player fires his weapon against the low-latency victim, the server's hit registration algorithm will rollback based on the shooter's latency as explained before, so the more latency it has the more back in time the server will rollback. In this case, the victim may experience an unfair SBC situation, as they were killed inmediately after taking cover. This presents a clear advantage for high-latency players.
@@ -126,7 +126,7 @@ The issue of SBC can also manifest in the opposite way. When players step out fr
 ## The solution: Conditional Lag Compensation
 To minimize the SBC problem, one of the most commonly used solutions is the one known as Conditional Lag Compensation [8]. This technique makes the server to fully compensate for the shooter's latency only when it does not exceeds a certain threshold. If the threshold is exceeded, the server will clamp the shooter's latency to that threshold and compensate for only that amount. As a consequence, the shooter must anticipate the target's trajectory by aiming ahead in time.
 
-![Conditional Lag Compensation example](assets/img/HitReg/conditional-lag-compensation.png){: .mx-auto.d-block :}
+![Conditional Lag Compensation example](/assets/img/HitReg/conditional-lag-compensation.png){: .mx-auto.d-block :}
 
 Games like Battlefield 4 and Overwatch had a limit of 250 milliseconds before stopping lag compensation, while others like Call Of Duty: Infinite Warfare had a limit of 500 milliseconds (except for peer-to-peer connections where the attacker was the host, which had no limit) [9].
 
