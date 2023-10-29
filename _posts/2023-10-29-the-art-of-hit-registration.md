@@ -113,15 +113,7 @@ Another solution similar to the one developed by the Valorant's team is discusse
 Another challenge that must be addressed when talking about Hit registration algorithms is the phenomenon known as "Shot behind covers" (SBC) [7]. This situation arises when a player with high latency shoots at another player with low latency. It is possible that the low-latency player has already taken cover behind an obstacle and is out of the shooter's line of sight. However, due to the attacker's high latency and the fact that clients render remote entities in a past state, the shooter player will still be able to see its victim. When the high-latency player fires his weapon against the low-latency victim, the server's hit registration algorithm will rollback based on the shooter's latency as explained before, so the more latency it has the more back in time the server will rollback. In this case, the victim may experience an unfair SBC situation, as they were killed inmediately after taking cover. This presents a clear advantage for high-latency players.
 
 >**Note:**
->As discussed in the previous pharagraph, the likelihood of encountering a SBC situation depends on the rollback distance of the victim's entity. The larger the rollback distance, the higher the probability of encountering an SBC scenario. According to the physics formulas of motion, the distance traveled by an object depends not only on time but also on velocity. This means that the rollback distance not only depends on the shooter's average RTT (time) but also on the victim's movement speed (velocity). This relation can be expressed using the following formulas:
->
->Physics formula of motion:
->
->![Physics formula of motion](https://latex.codecogs.com/svg.image?&space;S=S_0&plus;v*t).
->
->Physics formula of motion translated to the current context:
->
->![Physics formula of motion translated into this scenario](https://latex.codecogs.com/svg.image?&space;RollbackDistance=currentPosition&plus;victimsVelocity*ShootersAverageRTT)
+>As discussed in the previous pharagraph, the likelihood of encountering a SBC situation depends on the rollback distance of the victim's entity. The larger the rollback distance, the higher the probability of encountering an SBC scenario. According to the physics formulas of motion, the distance traveled by an object depends not only on time but also on velocity. This means that the rollback distance not only depends on the shooter's average RTT (time) but also on the victim's movement speed (velocity). This relation can be expressed using the following formulas: <br/><br/>Physics formula of motion:<br/><br/>![Physics formula of motion](https://latex.codecogs.com/svg.image?&space;S=S_0&plus;v*t)<br/><br/>Physics formula of motion translated to the current context:<br/><br/>![Physics formula of motion translated into this scenario](https://latex.codecogs.com/svg.image?&space;RollbackDistance=currentPosition&plus;victimsVelocity*ShootersAverageRTT)
 
 The issue of SBC can also manifest in the opposite way. When players step out from behind cover, they can see the other players before their clients have rendered the new attacker's state due to interpolation techniques delay. This situation grants a clear advantage to the attackers, as they can start shooting to other players before the victims have even seen them.
 
