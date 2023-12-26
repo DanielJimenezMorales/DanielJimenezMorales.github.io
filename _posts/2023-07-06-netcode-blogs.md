@@ -34,3 +34,7 @@ IT hare blog is another hidden gem tou definetly need to know. They have also pu
 ## Gabriel Gambetta
 This blog has a series of 4 articles about Netcode in Fast Paced Multiplayer games. And a live demo!
 [Link to Gabriel Gambetta](https://www.gabrielgambetta.com)
+
+## Kieran Newland
+Another blog written by a Senior Network Programmer whose posts are focused on Unreal
+[Link to Kieran Newland](https://www.kierannewland.co.uk/blog/)
