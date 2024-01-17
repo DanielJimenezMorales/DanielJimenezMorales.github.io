@@ -32,8 +32,8 @@ In order to develop the network architecture of this prototype I conducted exten
 <button name="button" onclick="window.location.href = 'https://danieljimenezmorales.itch.io/online-multiplayer-fps-prototype';" style="border-radius: 8px; background-color: #E79322; border: 2px solid black; font-size: 20px">Click here to download it</button>
 
 ## Network Library for realtime multiplayer games (C++)
-![Network Library for realtime multiplayer games cover image](https://github.com/DanielJimenezMorales/Network-Library){: .mx-auto.d-block :}\
-In this project, I am developing a C++ Network Library using UDP and BSD sockets to support realtime multiplayer games. [Link here](https://github.com/DanielJimenezMorales/Network-Library.vercel.app/api/pin/?username=laaouatni&repo=gcode.js "Link to repository")
+![Network Library for realtime multiplayer games cover image](https://github.com/DanielJimenezMorales/Network-Library/social.png){: .mx-auto.d-block :}\
+In this project, I am developing a C++ Network Library using UDP and BSD sockets to support realtime multiplayer games. [Link here](https://github.com/DanielJimenezMorales/Network-Library "Link to repository")
 
 #### Technologies used:
 - BSD Sockets
