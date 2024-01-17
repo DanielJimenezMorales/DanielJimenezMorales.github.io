@@ -9,7 +9,9 @@ Hello! My name is Daniel and I am a spanish Netcode programmer.
 ### My story
 I discovered my passion and interest for the netcode branch of game dev in one of my Videogames design and development degree's subject at University. From that moment, I decided to go beyond that subject and start learning from papers, blogs and code repositories. A few months later I decided I wanted to base my final university degree project in creating an online multiplayer First Person Shooter prototype.
 
-As a game programmer, I am specializing in the Network/multiplayer branch since it is one of my biggest concerns and interests in game development.
+Hi! I'm Daniel, a game programmer whose expertise lies in the intersection that combines gameplay systems with network/multiplayer since it is one of my biggest interests in game development
+
+My primary goal is to provide players with the best networked experience, addressing and mitigating all network-related issues that typically occur in online multiplayer games. To ensure a high-quality and seamless gameplay, it is crucial to employ various netcode strategies such as latency compensation techniques that I have been learning and mastering over the years.
 
 ### My skills
 - Engines: Unity
