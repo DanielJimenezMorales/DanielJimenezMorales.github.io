@@ -179,6 +179,7 @@ These is how the reconciliation process works:
 1. Overwrite the predicted state with the authoritative state from the server.
 2. Re-simulate all subsequent ticks using the inputs buffered in `ClientSidePredictionComponent` until reaching the current tick.
 3. Apply the re-simulated state to the current tick to render the correction.
+
 ```cpp
 void ReconciliateWithServer(ClientSidePredictionComponent& prediction_cmp, const PlayerState& state_from_server)
 {
