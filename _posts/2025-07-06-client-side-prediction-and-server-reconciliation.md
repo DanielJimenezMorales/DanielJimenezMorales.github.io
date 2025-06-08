@@ -8,7 +8,7 @@ readtime: true
 author: Daniel Jiménez Morales
 ---
 
-In fast-paced multiplayer games, specially shooters, in-game responsiveness is crucial. But it can be hard to achieve due to networking issues like latency or jitter, as they can introduce noticeable delays that break inmersion and hurt the overall experience, as they can completelty ruin the experience. In this post, we'll explore client-side prediction, a key technique used in Client-Server architectures (where the server is authoritative) to keep gameplay smooth and input feel immediate.
+In fast-paced multiplayer games, specially shooters, in-game responsiveness is crucial. But it can be hard to achieve due to [networking issues](https://danieljimenezmorales.github.io/2023-07-06-challenges-and-issues-of-the-network/) like latency or jitter, as they can introduce noticeable delays that break inmersion and hurt the overall experience, as they can completelty ruin the experience. In this post, we'll explore client-side prediction, a key technique used in Client-Server architectures (where the server is authoritative) to keep gameplay smooth and input feel immediate.
 
 ## Types of client-side prediction algorithms
 Client-side prediction techniques can vary depending on the type of entity being predicted and who controls it. For remote entities, those controlled by other players or server-side AI systems, developers often use a technique called extrapolation. This technique attempts to estimate an entity's future position based on its past movement data. However, extrapolation comes with its own set of challenges and deserves an entire separate discussion. In this case, we'll focus on the technique used for predicting the local player entity, that is the one controlled by the player's own inputs.
