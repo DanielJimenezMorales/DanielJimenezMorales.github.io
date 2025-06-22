@@ -248,7 +248,7 @@ To implement the smooth correction, the client-side representation of the player
 | Aspect | Ghost Object | Interpolated object |
 | -------- | ------- | ------- |
 | Purpose | Simulation | Rendering |
-| Containe | Simulation & gameplay data | Rendering & VFX data |
+| Contains | Simulation & gameplay data | Rendering & VFX data |
 | Update rate | Fixed Simulation tick | Variable Frame Update |
 | Applies server corrections | Yes (snap correction) | No (follows ghost via interpolation) |
 
@@ -341,7 +341,7 @@ Using our the exact numbers from our example we get:
 
 This means that every time the client finds a mismatch between its predicted state and the authoritative state from the server, it must re-simulate at least 5 ticks to reconcile. As a consequence a CPU spike might arise if the correction is fully applied in the same tick.
 
-### Mitigation strategy: Spread re-simulations over multiple threads
+### Mitigation strategy: Spread re-simulations over multiple ticks
 One possible solution is to limit the number of re-simulations executed each tick. Instead of processing all the re-simulations needed to reconcile in one tick, we can split the work over multiple ticks.
 
 For example, if 6 ticks of re-simulation are required, we might choose to perform 2 reconciliations for the next three ticks. This solution introduces a small delay in reaching full synchronization, but it reduces the risk of having CPU spikes.
